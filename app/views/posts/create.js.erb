@@ -1,0 +1,6 @@
+$("#mynewpost").modal('hide')
+$(".post_name").val('');
+$(".post_task").val('');
+$(".post_comment").val('');
+$(".post_image").val('');
+$(" table#posts tbody").append("<%= j render @post %>")

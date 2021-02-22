@@ -1,0 +1,55 @@
+<% if @post.user.username == current_user.username or @post.user_id == 1 or current_user.id == 1 %>
+<p>
+  <strong><%= t 'name'%>:</strong>
+  <%= @post.name %>
+</p>
+<br>
+<hr>
+
+<p>
+  <strong><%= t 'task'%>:</strong>
+  <%= @post.task %>
+</p>
+<br>
+<hr>
+
+</p>
+<strong><%=t :task_images %>:</strong><br/>
+<% (0...@post.task_images.count).each do |image|%>
+  <%= image_tag(@post.task_thumbnail(image))%>
+  <br>
+<br>
+<% end %>
+<p>
+<br>
+<hr>
+
+</p>
+<strong><%=t :answ_images %>:</strong><br/>
+<% (0...@post.answ_images.count).each do |image|%>
+  <%= image_tag(@post.answ_thumbnail(image))%>
+  <br>
+<br>
+<% end %>
+<p>
+<br>
+<hr>
+
+<p>
+  <strong><%= t 'comment'%>:</strong>
+  <%= @post.comment %>
+</p>
+<br>
+<hr>
+
+<p>
+  <strong><%= t 'username'%>:</strong>
+  <%= @post.user.username %>
+</p>
+<br>
+<hr>
+<%= link_to t("links.back"), posts_path %>
+<%else%>
+<p><%= t 'unable'%></p>
+<%= link_to t("links.back"), posts_path %>
+<% end%>
